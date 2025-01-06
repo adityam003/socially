@@ -113,9 +113,7 @@ const ChatInterface = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#F6F0FF] to-[#FFF0F5]">
-      {/* Header - Full Width */}
-      <div className="w-full bg-gradient-to-br from-[#F6F0FF] to-[#FFF0F5] border-b border-gray-100">
+    <div className="min-h-screen bg-gradient-to-br from-[#d9d9f3] to-[#f3e6e6] text-gray-800">
         <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-3">
           <div className="flex items-center space-x-2">
             <div className="w-8 h-8 bg-black rounded-lg flex items-center justify-center">
@@ -127,7 +125,6 @@ const ChatInterface = () => {
             <User className="w-4 h-4 text-gray-600" />
           </button>
         </div>
-      </div>
 
       {/* Main Content Area */}
       <div className="max-w-7xl mx-auto min-h-[calc(100vh-64px)] flex flex-col">
@@ -180,6 +177,8 @@ const ChatInterface = () => {
             </div>
           )}
         </div>
+
+         {/* ye suggestion card hai   */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto w-full px-4 md:px-0">
                 {suggestionCards.map((card, index) => (
                   <button
@@ -196,7 +195,7 @@ const ChatInterface = () => {
                 ))}
               </div>
 
-        {/* Input Area */}
+        {/* yaha Input Area hai  */}
         <div className="p-4 md:p-6 w-full max-w-4xl mx-auto">
           <form onSubmit={handleSubmit} className="relative">
             <div className="flex items-center gap-2 bg-white rounded-xl p-2 shadow-sm">
