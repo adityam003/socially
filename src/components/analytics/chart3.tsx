@@ -45,8 +45,8 @@ export default function Chart3() {
     <div className="w-full h-full md:w-[65%] md:h-[30%]">
     <Card className="bg-[#ffffff] rounded-[15px] md:rounded-[35px]">
       <CardHeader>
-        <CardTitle className="text-4xl">Engagement Metrics</CardTitle>
-        <CardDescription>
+        <CardTitle className="text-lg">Engagement Metrics</CardTitle>
+        <CardDescription className="pb-12">
         Engagement rate across all content types (average likes, comments, shares per post)
         </CardDescription>
       </CardHeader>
@@ -63,7 +63,7 @@ export default function Chart3() {
             <CartesianGrid vertical={false} horizontal={false} />
             <XAxis
               dataKey="month"
-              tickLine={false}  
+              tickLine={false}
               axisLine={false}
               tickMargin={8}
               tickFormatter={(value) => value.slice(0, 3)}

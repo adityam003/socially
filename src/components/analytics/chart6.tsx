@@ -53,11 +53,11 @@ const chartConfig = {
 export default function Chart6({ name }: { name: string }) {
   return (
     <Card className="flex flex-col w-full bg-white rounded-[15px] md:rounded-[35px]">
-      <CardHeader className="items-center pb-0">
-        <CardTitle> Trending {name} Types</CardTitle>
+      <CardHeader className="items-start pb-0">
+        <CardTitle className="text-lg"> Trending {name} Types</CardTitle>
         <CardDescription> Identify the most popular formats of Reels currently trending</CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className="mt-8">
         <ChartContainer config={chartConfig}    className="mx-auto aspect-video max-h-[250px]">
           <LineChart
             accessibilityLayer
@@ -105,7 +105,7 @@ export default function Chart6({ name }: { name: string }) {
           </LineChart>
         </ChartContainer>
       </CardContent>
-      <CardFooter className="flex-col items-center gap-2 text-sm">
+      <CardFooter className="flex-col items-start mt-6 gap-2 text-sm">
         <div className="flex gap-2 font-medium leading-none">
           Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
         </div>

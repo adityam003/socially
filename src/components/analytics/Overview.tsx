@@ -7,7 +7,7 @@ const Overview = () => {
   return (
     <div>
         <Chart1/>
-        <h1 className='text-2xl font:bold md:text-2xl lg:text-4xl mt-12 mb-4 '>Trends</h1>
+        <h1 className='text-2xl font-semibold md:text-2xl lg:text-3xl mt-12 mb-12 '>Trends</h1>
       <div className="flex gap-12 flex-col md:flex-row ">
       <Chart2/>
       <Chart3/>

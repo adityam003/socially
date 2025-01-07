@@ -56,11 +56,11 @@ export default function Chart4({ name }: ChartProps) {
   };
 
   return (
-    <Card className="w-full bg-white rounded-[15px] md:rounded-[35px]">
-      <CardHeader>
-        <CardTitle>{name} Hashtag Performance</CardTitle>
-        <CardDescription>Top-performing hashtags across Reels for reach.</CardDescription>
-      </CardHeader>
+    <Card className='w-full  bg-white rounded-[15px] md:rounded-[35px] '>
+             <CardHeader>
+                        <CardTitle className='text-lg'>{name} Hashtag Performance</CardTitle>
+                       <CardDescription>Top-performing hashtags across Reels for reach.</CardDescription>
+                     </CardHeader>
       <CardContent className="p-6">
         <div className="h-[285px] w-full">
           <ResponsiveContainer width="100%" height="100%">

@@ -41,12 +41,12 @@ export default function Chart2() {
   return (
     <Card className="rounded-[15px] md:rounded-[35px] bg-[#ffffff] md:w-[30%]">
       <CardHeader className="items-center pb-4 ">
-        <CardTitle>Trending Topics</CardTitle>
+        <CardTitle className="text-lg">Trending Topics</CardTitle>
         <CardDescription>
         Most discussed or searched topics across all posts
         </CardDescription>
       </CardHeader>
-      <CardContent className="pb-0">
+      <CardContent className="pb-0 mt-4">
         <ChartContainer
           config={chartConfig}
           className="mx-auto aspect-square max-h-[250px]"
@@ -104,12 +104,11 @@ export default function Chart2() {
           </RadarChart>
         </ChartContainer>
       </CardContent>
-      <div className="mb-6"></div>
-      <CardFooter className="flex-col gap-2 text-sm">
-        <div className="flex items-center gap-2 font-medium leading-none">
+      <CardFooter className="flex-col gap-2 mt-8 text-sm">
+        <div className="flex font-medium leading-none">
           Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
         </div>
-        <div className="flex items-center gap-2 leading-none text-muted-foreground">
+        <div className="flex leading-none text-muted-foreground">
           January - June 2024
         </div>
       </CardFooter>

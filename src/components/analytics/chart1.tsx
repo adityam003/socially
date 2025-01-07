@@ -59,7 +59,7 @@ const Chart1 = () => {
     <div className="flex flex-col md:flex-row gap-12">
       <Card className="w-full md:w-2/3 bg-white rounded-[15px] md:rounded-[35px]">
         <CardHeader>
-          <CardTitle>Content Growth Over Time</CardTitle>
+          <CardTitle className='text-lg'>Content Growth Over Time</CardTitle>
           <CardDescription>Showing how different types of content have grown (or declined) over time</CardDescription>
         </CardHeader>
         <CardContent>
@@ -94,7 +94,7 @@ const Chart1 = () => {
           </ChartContainer>
         </CardContent>
         <CardFooter>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center text-sm gap-2">
             <TrendingUp className="h-4 w-4" />
             <span>Trending up by 15.2% this month</span>
           </div>
@@ -103,7 +103,7 @@ const Chart1 = () => {
 
       <Card className="w-full md:w-1/3 bg-white rounded-[15px] md:rounded-[35px]">
         <CardHeader>
-          <CardTitle>Trending Hashtags</CardTitle>
+          <CardTitle className='text-lg'>Trending Hashtags</CardTitle>
           <CardDescription>January - December 2024</CardDescription>
         </CardHeader>
         <CardContent>
@@ -122,7 +122,7 @@ const Chart1 = () => {
           </ChartContainer>
         </CardContent>
         <CardFooter>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center text-sm gap-2">
             <TrendingUp className="h-4 w-4" />
             <span>Trending up by 5.2% this month</span>
           </div>

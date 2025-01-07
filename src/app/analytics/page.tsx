@@ -48,7 +48,7 @@ export default function Analytics() {
                 <div className="px-4 md:px-12">
                     {activeTab === 'Overview' && (
                         <>
-                            <h1 className='text-2xl font-bold md:text-2xl lg:text-4xl mt-6 mb-12'>Overview</h1>
+                            <h1 className='text-2xl font-semibold md:text-2xl lg:text-3xl mt-6 mb-12'>Overview</h1>
                            <div className="mx-3 pr-3">
                            <Overview />
                            </div>
@@ -57,7 +57,7 @@ export default function Analytics() {
                     )}
                     {activeTab === 'Reels' && (
                         <>
-                            <h1 className='text-2xl font-bold md:text-2xl lg:text-4xl mt-6 mb-12'>Reel Metrics</h1>
+                            <h1 className='text-2xl font-semibold md:text-2xl lg:text-3xl mt-6 mb-12'>Reel Metrics</h1>
                             <Reel />
                         </>
                     )}
@@ -69,7 +69,7 @@ export default function Analytics() {
                     )}
                     {activeTab === 'Carousel' && (
                         <>
-                            <h1 className='text-2xl font-bold md:text-2xl lg:text-4xl mt-6 mb-12'>Customer</h1>
+                            <h1 className='text-2xl font-semibold md:text-2xl lg:text-3xl mt-6 mb-12'>Customers</h1>
                             <Carousel />
                         </>
                     )}

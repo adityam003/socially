@@ -80,7 +80,7 @@ export default function Chart5({ name }: { name: string }) {
       <ChartStyle id={id} config={chartConfig} />
       <CardHeader className="flex-row items-start space-y-0 pb-0">
         <div className="grid gap-1">
-          <CardTitle>Best Performing {name} Metrics</CardTitle>
+          <CardTitle className="text-md">Best Performing {name} Metrics</CardTitle>
           <CardDescription>Proportion of engagement types for Reels.</CardDescription>
         </div>
         <Select value={activeMonth} onValueChange={setActiveMonth}>
