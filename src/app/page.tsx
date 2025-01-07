@@ -164,7 +164,7 @@ const ChatInterface = () => {
                     Ready to assist you with anything you need, from answering
                   </span>
                   <span>
-                    questions to providing recommendations. Let's get started!
+                    questions to providing recommendations. Lets get started!
                   </span>
                 </div>
               </div>

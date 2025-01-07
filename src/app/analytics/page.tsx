@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Overview from '@/components/analytics/Overview'
 import Reel from '@/components/analytics/Reel'
-import Image from '@/components/analytics/Image'
+import StaticImage from '@/components/analytics/Image'
 import Carousel from '@/components/analytics/carousel'
 import '@/app/globals.css'
 
@@ -52,7 +52,7 @@ export default function Analytics() {
                            <div className="mx-3 pr-3">
                            <Overview />
                            </div>
-                           
+
                         </>
                     )}
                     {activeTab === 'Reels' && (
@@ -64,7 +64,7 @@ export default function Analytics() {
                     {activeTab === 'static_Images' && (
                         <>
                             <h1 className='text-2xl font-bold md:text-2xl lg:text-4xl mt-6 mb-12'>Sales</h1>
-                            <Image />
+                            <StaticImage/>
                         </>
                     )}
                     {activeTab === 'Carousel' && (
