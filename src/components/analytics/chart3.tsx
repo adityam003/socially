@@ -51,7 +51,7 @@ export default function Chart3() {
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <ChartContainer config={chartConfig} className="aspect-[4/2] md:aspect-[4/1]">
+        <ChartContainer config={chartConfig} className="h-[250px] w-full">
           <AreaChart
             accessibilityLayer
             data={chartData}
