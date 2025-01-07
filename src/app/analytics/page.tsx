@@ -23,7 +23,7 @@ export default function Analytics() {
     ];
 
     return (
-        <div className='min-h-screen bg-gradient-to-br from-[#d9d9f3] to-[#f3e6e6] text-gray-800'>
+        <div className='min-h-screen bg-gradient-to-b from-[#f5cbc4] via-[#e8b4eb] to-[#c7d3f4] text-gray-800'>
             <div className="flex flex-col w-full md:pl-16">
                 <div>
                     <ul className="flex gap-2 p-5 flex-wrap text-sm font-medium text-center text-gray-500 dark:text-gray-400">
