@@ -25,26 +25,28 @@ export default function Analytics() {
     return (
         <div className='min-h-screen bg-gradient-to-b from-[#f5cbc4] via-[#e8b4eb] to-[#c7d3f4] text-gray-800'>
             <div className="flex flex-col w-full md:pl-16">
-                <div>
-                    <ul className="flex gap-2 p-5 flex-wrap text-sm font-medium text-center text-gray-500 dark:text-gray-400">
-                        {tabData.map((tab) => (
-                            <li key={tab.id} className="me-2">
-                                <a
-                                    href={`#${tab.id}`}
-                                    className={`inline-block px-8 py-4 rounded-[50px] transition-all duration-200 transform ${
-                                        activeTab === tab.id
-                                            ? 'text-white bg-[#464646] shadow-lg'
-                                            : 'text-gray-500 bg-white hover:bg-gray-100 dark:hover:bg-gray-800 hover:shadow-md hover:-translate-y-1'
-                                    }`}
-                                    onClick={() => handleTabClick(tab.id)}
-                                    aria-current={activeTab === tab.id ? 'page' : undefined}
-                                >
-                                    {tab.label}
-                                </a>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
+            <div>
+    <ul className="flex flex-nowrap overflow-x-auto gap-2 p-5 text-sm font-medium text-center text-gray-500 dark:text-gray-400 hide-scrollbar">
+        {tabData.map((tab) => (
+            <li key={tab.id} className="me-2 flex-shrink-0">
+                <a
+                    href={`#${tab.id}`}
+                    className={`inline-block px-4 py-2 sm:px-8 sm:py-4 rounded-[50px] transition-all duration-200 transform ${
+                        activeTab === tab.id
+                            ? 'text-white bg-[#464646] shadow-lg'
+                            : 'text-gray-500 bg-white hover:bg-gray-100 dark:hover:bg-gray-800 hover:shadow-md hover:-translate-y-1'
+                    }`}
+                    onClick={() => handleTabClick(tab.id)}
+                    aria-current={activeTab === tab.id ? 'page' : undefined}
+                >
+                    {tab.label}
+                </a>
+            </li>
+        ))}
+    </ul>
+</div>
+
+
                 <div className="px-4 md:px-12">
                     {activeTab === 'Overview' && (
                         <>
@@ -63,13 +65,13 @@ export default function Analytics() {
                     )}
                     {activeTab === 'static_Images' && (
                         <>
-                            <h1 className='text-2xl font-bold md:text-2xl lg:text-4xl mt-6 mb-12'>Sales</h1>
+                            <h1 className='text-2xl font-semibold md:text-2xl lg:text-3xl mt-6 mb-12'>Static Images Metrics</h1>
                             <StaticImage/>
                         </>
                     )}
                     {activeTab === 'Carousel' && (
                         <>
-                            <h1 className='text-2xl font-semibold md:text-2xl lg:text-3xl mt-6 mb-12'>Customers</h1>
+                            <h1 className='text-2xl font-semibold md:text-2xl lg:text-3xl mt-6 mb-12'>Carousel Metrics</h1>
                             <Carousel />
                         </>
                     )}

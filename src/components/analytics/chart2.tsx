@@ -39,7 +39,7 @@ const chartConfig = {
 
 export default function Chart2() {
   return (
-    <Card className="rounded-[15px] md:rounded-[35px] bg-[#ffffff] md:w-[30%]">
+    <Card className="w-full md:w-1/3 bg-white rounded-[15px] md:rounded-[35px]">
       <CardHeader className="items-center pb-4 ">
         <CardTitle className="text-lg">Trending Topics</CardTitle>
         <CardDescription>
@@ -49,7 +49,7 @@ export default function Chart2() {
       <CardContent className="pb-0 mt-4">
         <ChartContainer
           config={chartConfig}
-          className="mx-auto aspect-square max-h-[250px]"
+          className="h-[300px] w-full"
         >
           <RadarChart
             data={chartData}

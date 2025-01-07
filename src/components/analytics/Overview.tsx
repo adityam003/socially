@@ -8,7 +8,7 @@ const Overview = () => {
     <div>
         <Chart1/>
         <h1 className='text-2xl font-semibold md:text-2xl lg:text-3xl mt-12 mb-12 '>Trends</h1>
-      <div className="flex gap-12 flex-col md:flex-row ">
+      <div className="flex flex-col md:flex-row gap-12 ">
       <Chart2/>
       <Chart3/>
       </div>

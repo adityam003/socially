@@ -42,8 +42,8 @@ const chartConfig = {
 export default function Chart3() {
 
   return (
-    <div className="w-full h-full md:w-[65%] md:h-[30%]">
-    <Card className="bg-[#ffffff] rounded-[15px] md:rounded-[35px]">
+
+    <Card className="w-full md:w-2/3 bg-white rounded-[15px] md:rounded-[35px]">
       <CardHeader>
         <CardTitle className="text-lg">Engagement Metrics</CardTitle>
         <CardDescription className="pb-12">
@@ -51,7 +51,7 @@ export default function Chart3() {
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <ChartContainer config={chartConfig} className="h-[250px] w-full">
+        <ChartContainer config={chartConfig} className="h-[300px] w-full">
           <AreaChart
             accessibilityLayer
             data={chartData}
@@ -109,6 +109,6 @@ export default function Chart3() {
         </div>
       </CardFooter>
     </Card>
-    </div>
+
   )
 }

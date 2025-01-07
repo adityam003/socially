@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { Label, Pie, PieChart, Sector } from "recharts"
-import { PieSectorDataItem } from "recharts/types/polar/Pie"
+import * as React from "react";
+import { Label, Pie, PieChart, Sector } from "recharts";
+import { PieSectorDataItem } from "recharts/types/polar/Pie";
 
 import {
   Card,
@@ -10,29 +10,50 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
+} from "@/components/ui/card";
 import {
   ChartConfig,
   ChartContainer,
   ChartStyle,
   ChartTooltip,
   ChartTooltipContent,
-} from "@/components/ui/chart"
+} from "@/components/ui/chart";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select"
-const desktopData = [
-  { month: "january", desktop: 305, fill: "var(--color-january)" },
-  { month: "february", desktop: 237, fill: "var(--color-february)" },
-  { month: "march", desktop: 209, fill: "var(--color-march)" },
-  { month: "april", desktop: 186, fill: "var(--color-april)" },
-  { month: "may", desktop: 73, fill: "var(--color-may)" },
-]
+} from "@/components/ui/select";
 
+type DataKey = "Reel" | "Image" | "Carousel"; // Define valid keys
+
+// Data mapping for each category (Reel, Image, Carousel)
+const dataMap: Record<DataKey, { month: string; desktop: number; fill: string }[]> = {
+  Reel: [
+    { month: "january", desktop: 405, fill: "var(--color-january)" },
+    { month: "february", desktop: 337, fill: "var(--color-february)" },
+    { month: "march", desktop: 309, fill: "var(--color-march)" },
+    { month: "april", desktop: 286, fill: "var(--color-april)" },
+    { month: "may", desktop: 173, fill: "var(--color-may)" },
+  ],
+  Image: [
+    { month: "january", desktop: 205, fill: "var(--color-january)" },
+    { month: "february", desktop: 137, fill: "var(--color-february)" },
+    { month: "march", desktop: 109, fill: "var(--color-march)" },
+    { month: "april", desktop: 86, fill: "var(--color-april)" },
+    { month: "may", desktop: 43, fill: "var(--color-may)" },
+  ],
+  Carousel: [
+    { month: "january", desktop: 505, fill: "var(--color-january)" },
+    { month: "february", desktop: 437, fill: "var(--color-february)" },
+    { month: "march", desktop: 409, fill: "var(--color-march)" },
+    { month: "april", desktop: 386, fill: "var(--color-april)" },
+    { month: "may", desktop: 273, fill: "var(--color-may)" },
+  ],
+};
+
+// Chart configuration object
 const chartConfig = {
   visitors: {
     label: "Visitors",
@@ -63,17 +84,25 @@ const chartConfig = {
     label: "Downloads",
     color: "hsl(var(--chart-5))",
   },
-} satisfies ChartConfig
+} satisfies ChartConfig;
 
-export default function Chart5({ name }: { name: string }) {
-  const id = "pie-interactive"
-  const [activeMonth, setActiveMonth] = React.useState(desktopData[0].month)
+export default function Chart5({ name }: { name: DataKey }) {
+  const id = "pie-interactive";
 
+  // Dynamically set the data based on the name prop
+  const desktopData = React.useMemo(() => dataMap[name], [name]);
+
+  // Manage selected month state
+  const [activeMonth, setActiveMonth] = React.useState(desktopData[0]?.month || "");
+
+  // Determine activeIndex based on activeMonth
   const activeIndex = React.useMemo(
     () => desktopData.findIndex((item) => item.month === activeMonth),
-    [activeMonth]
-  )
-  const months = React.useMemo(() => desktopData.map((item) => item.month), [])
+    [activeMonth, desktopData]
+  );
+
+  // Extract months from the data
+  const months = React.useMemo(() => desktopData.map((item) => item.month), [desktopData]);
 
   return (
     <Card data-chart={id} className="w-full flex flex-col rounded-[15px] md:rounded-[35px]">
@@ -81,7 +110,7 @@ export default function Chart5({ name }: { name: string }) {
       <CardHeader className="flex-row items-start space-y-0 pb-0">
         <div className="grid gap-1">
           <CardTitle className="text-md">Best Performing {name} Metrics</CardTitle>
-          <CardDescription>Proportion of engagement types for Reels.</CardDescription>
+          <CardDescription>Proportion of engagement types for {name}.</CardDescription>
         </div>
         <Select value={activeMonth} onValueChange={setActiveMonth}>
           <SelectTrigger
@@ -92,10 +121,10 @@ export default function Chart5({ name }: { name: string }) {
           </SelectTrigger>
           <SelectContent align="end" className="rounded-xl">
             {months.map((key) => {
-              const config = chartConfig[key as keyof typeof chartConfig]
+              const config = chartConfig[key as keyof typeof chartConfig];
 
               if (!config) {
-                return null
+                return null;
               }
 
               return (
@@ -114,7 +143,7 @@ export default function Chart5({ name }: { name: string }) {
                     {config?.label}
                   </div>
                 </SelectItem>
-              )
+              );
             })}
           </SelectContent>
         </Select>
@@ -176,7 +205,7 @@ export default function Chart5({ name }: { name: string }) {
                           Visitors
                         </tspan>
                       </text>
-                    )
+                    );
                   }
                 }}
               />
@@ -185,5 +214,5 @@ export default function Chart5({ name }: { name: string }) {
         </ChartContainer>
       </CardContent>
     </Card>
-  )
+  );
 }
