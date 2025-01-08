@@ -141,8 +141,8 @@ const ChatInterface = () => {
             </div>
 
             <div className="max-w-7xl mx-auto min-h-[calc(100vh-64px)] flex flex-col">
-                <div className="flex-1 overflow-y-auto px-4">
-                    {showSuggestions && messages.length === 0 ? (
+                <div className={`flex-1 overflow-y-auto px-4 flex flex-col overrflow-y-auto ${showSuggestions || !isLoading ? "justify-start" : "justify-end" }`}>
+                    {showSuggestions && messages.length === 0?(
                         <div className="h-full flex flex-col justify-center mt-10">
                             <div className="text-center mb-8 animate-fadeIn">
                                 <div className="w-16 h-16  rounded-2xl flex items-center justify-center mx-auto mb-6">
@@ -170,7 +170,8 @@ const ChatInterface = () => {
                             </div>
                         </div>
                     ) : (
-                        <div className="max-w-2xl mx-auto px-4 space-y-4">
+                            <div className="max-w-2xl mx-auto px-4 space-y-4 justify-end flex flex-col flex-1 overflow-y-auto ">
+                             <div className="flex-1"></div>
                             {messages.map((message) => (
                                 <div
                                     key={message.id}
@@ -205,7 +206,7 @@ const ChatInterface = () => {
                 </div>
 
                 {showSuggestions && messages.length === 0 && (
-                    <div className="hidden sm:grid sm:grid-cols-3 lg:grid-cols-3 gap-4 max-w-xl mx-auto w-full px-4 md:px-0 mb-6">
+                    <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-xl mx-auto w-full px-4 md:px-0 mb-6">
                         {suggestionCards.map((card, index) => (
                             <button
                                 key={index}
