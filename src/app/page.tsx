@@ -1,8 +1,9 @@
 "use client";
 
+import Link from "next/link";
 import Image from "next/image";
 import { useState, FormEvent, ChangeEvent, useRef, useEffect } from "react";
-import { Send, Link, User } from "lucide-react";
+import { Send, ChartPie, WandSparkles } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 interface Message {
@@ -33,26 +34,18 @@ const ChatInterface = () => {
 
     const suggestionCards: SuggestionCard[] = [
         {
-            icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="black" class="w-6 h-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2z" />
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 7v5l3 3" />
-                   </svg>`,
-            title: "trands of 2024",
+            icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E8E8E8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg>`,
+            title: "Upcoming Trends in 2024",
             subtitle: "Must try",
         },
         {
-            icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="black" class="w-6 h-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v18m9-9H3" />
-                   </svg>`,
-            title: "SayHalo AI: What Sets Us Apart",
+            icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E8E8E8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></svg>`,
+            title: "Post Performance Insights",
             subtitle: "Key Differentiators",
         },
         {
-            icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="black" class="w-6 h-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h11M9 21V3" />
-                        <rect x="16" y="8" width="4" height="8" rx="1" ry="1" stroke-width="2" stroke="black" fill="none" />
-                   </svg>`,
-            title: "Design Trends on instagram 2024",
+            icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E8E8E8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-tv-minimal-play"><path d="M10 7.75a.75.75 0 0 1 1.142-.638l3.664 2.249a.75.75 0 0 1 0 1.278l-3.664 2.25a.75.75 0 0 1-1.142-.64z"/><path d="M7 21h10"/><rect width="20" height="14" x="2" y="3" rx="2"/></svg>`,
+            title: "Smarter Content Strategies",
             subtitle: "Trending Now",
         },
     ];
@@ -127,25 +120,43 @@ const ChatInterface = () => {
         }
     };
 
+    // Function to reset the state
+    const resetState = () => {
+        setMessages([]); // Clear all messages
+        setInputMessage(""); // Clear input
+        setShowSuggestions(true); // Show suggestions again
+    };
+
     return (
         <div className="min-h-screen bg-gradient-to-b from-[#f5cbc4] via-[#e8b4eb] to-[#c7d3f4] text-gray-800">
             {/* Header */}
             <div className="max-w-full mx-auto flex items-center justify-between px-4 py-3 sticky top-0 bg-opacity-90 backdrop-blur-sm z-10">
-                <div className="flex items-center space-x-2">
-                    <div className="w-8 h-8 bg-gray-400 rounded-full flex items-center justify-center"></div>
-                    <span className="text-sm font-semibold text-gray-800">Socially</span>
+                <div
+                    className="flex items-center space-x-2 cursor-pointer" // Add cursor-pointer for better UX
+                    onClick={resetState} // Attach the click handler to reset state
+                >
+                    <div className="w-8 h-8 bg-black rounded-full flex items-center justify-center">
+                        <WandSparkles width={14} height={14} className="text-white" />
+                    </div>
+                    <span className="text-sm font-semibold text-gray-800">Dev Dynamos</span>
                 </div>
-                <button className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center hover:bg-gray-200 transition-colors">
-                    <User className="w-4 h-4 text-gray-500" />
-                </button>
+                <Link href={"https://github.com/adityam003/socially"}>
+                    <button className="rounded-full bg-black flex items-center px-4 py-3 justify-center transition-colors">
+                        <div className="flex flex-row justify-between gap-2 items-center">
+                            <Image src="./ghub.svg" width={18} height={4} alt="Github" />
+                            <span className="text-white font-medium text-sm">Github</span>
+                        </div>
+                    </button>
+                </Link>
             </div>
 
+            {/* Rest of the component */}
             <div className="max-w-7xl mx-auto min-h-[calc(100vh-64px)] flex flex-col">
-                <div className={`flex-1 overflow-y-auto px-4 flex flex-col overrflow-y-auto ${showSuggestions || !isLoading ? "justify-start" : "justify-end" }`}>
-                    {showSuggestions && messages.length === 0?(
+                <div className={`flex-1 overflow-y-auto px-4 flex flex-col overrflow-y-auto ${showSuggestions || !isLoading ? "justify-start" : "justify-end"}`}>
+                    {showSuggestions && messages.length === 0 ? (
                         <div className="h-full flex flex-col justify-center mt-10">
                             <div className="text-center mb-8 animate-fadeIn">
-                                <div className="w-16 h-16  rounded-2xl flex items-center justify-center mx-auto mb-6">
+                                <div className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6">
                                     <Image
                                         width={84}
                                         height={84}
@@ -157,7 +168,7 @@ const ChatInterface = () => {
                                     Welcome to Socially!
                                 </h1>
                                 <h2 className="text-xl md:text-3xl font-semibold text-gray-800 mb-4">
-                                    Can we help you with social media?
+                                    Unlock smarter social media strategies
                                 </h2>
                                 <div className="text-[#938B91] flex flex-col max-w-auto mx-auto px-2 text-sm">
                                     <span>
@@ -170,37 +181,44 @@ const ChatInterface = () => {
                             </div>
                         </div>
                     ) : (
-                            <div className="max-w-2xl mx-auto px-4 space-y-4 justify-end flex flex-col flex-1 overflow-y-auto ">
-                             <div className="flex-1"></div>
-                            {messages.map((message) => (
-                                <div
-                                    key={message.id}
-                                    className={`flex ${message.role === "user" ? "justify-end" : "justify-start"
-                                        } animate-slideIn`}
-                                >
+                        <div className="flex justify-center flex-1">
+                            <div className="max-w-2xl  px-4 space-y-4 flex flex-col flex-1 overflow-y-auto">
+                                <div className="flex-1"></div>
+                                {messages.map((message) => (
                                     <div
-                                        className={`max-w-[85%] md:max-w-[75%] rounded-2xl p-4 ${message.role === "user"
-                                                ? "bg-black text-white ml-auto"
+                                        key={message.id}
+                                        className={`w-full flex ${message.role === "user" ? "justify-end" : "justify-start"} animate-slideIn`}
+                                    >
+                                        <div
+                                            className={`max-w-[85%] md:max-w-[75%] rounded-2xl p-4 ${message.role === "user"
+                                                ? "bg-black text-white"
                                                 : message.role === "system"
                                                     ? "bg-red-100 text-red-800"
                                                     : "bg-white text-gray-800"
-                                            }`}
-                                    >
-                                        <p className="text-sm whitespace-pre-wrap break-words">
-                                            {message.content}
-                                        </p>
-                                        <div className="text-xs mt-2 opacity-70">
-                                            {new Date(message.timestamp).toLocaleTimeString()}
+                                                }`}
+                                        >
+                                            <p className="text-sm whitespace-pre-wrap break-words">
+                                                {message.content}
+                                            </p>
+                                            <div className="text-xs mt-2 opacity-70">
+                                                {new Date(message.timestamp).toLocaleTimeString()}
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            ))}
-                            <div ref={messagesEndRef} />
-                            {isLoading && (
-                                <div className="flex justify-center p-4">
-                                    <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-black"></div>
-                                </div>
-                            )}
+                                ))}
+                                <div ref={messagesEndRef} />
+                                {isLoading && (
+                                    <div className="flex w-full justify-start animate-slideIn">
+                                        <div className="bg-white text-gray-800 max-w-[85%] md:max-w-[75%] rounded-2xl p-4">
+                                            <div className="flex items-center space-x-1">
+                                                <p className="text-sm text-gray-400">
+                                                    Thinking<span className="after:content-[''] after:animate-dots after:inline-block after:w-4"></span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
                         </div>
                     )}
                 </div>
@@ -213,9 +231,8 @@ const ChatInterface = () => {
                                 onClick={() => handleSuggestionClick(card)}
                                 className="bg-white p-6 rounded-2xl drop-shadow-sm text-left hover:shadow-lg transition-all duration-200 ease-in-out transform hover:-translate-y-1"
                             >
-                                {/* Render the SVG Icon */}
                                 <div
-                                    className="text-2xl mb-4 bg-[#ECEAEA] w-12 rounded-2xl h-12 flex items-center justify-center p-2"
+                                    className="text-2xl mb-4 bg-[#454647] w-12 rounded-2xl h-12 flex items-center justify-center p-2"
                                     dangerouslySetInnerHTML={{ __html: card.icon }}
                                 ></div>
                                 <h3 className="font-semibold text-[#323232] text-base mb-1 line-clamp-2">
@@ -231,20 +248,14 @@ const ChatInterface = () => {
                     <div className="flex flex-row justify-between items-center gap-4 max-w-2xl mx-auto">
                         <button
                             type="button"
-                            className="w-12 h-12 bg-[#ECEAEA] rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors shadow-sm"
+                            className="w-12 h-12 bg-[#454647] rounded-full flex items-center justify-center hover:bg-blue-500 transition-colors shadow-sm"
                             onClick={() => router.push("/analytics")}
                         >
-                            <span className="text-2xl">🎯</span>
+                            <ChartPie className="text-white" />
                         </button>
                         <form onSubmit={handleSubmit} className="w-full relative">
                             <div className="flex-1 flex items-center gap-2 bg-white rounded-full p-1 shadow-sm">
                                 <div className="flex p-1 items-center gap-2">
-                                    <button
-                                        type="button"
-                                        className="p-2 hover:bg-gray-100 bg-[#ECEAEA] rounded-full transition-colors drop-shadow-lg hidden md:flex"
-                                    >
-                                        <Link className="w-5 h-5 text-gray-500" />
-                                    </button>
                                 </div>
                                 <input
                                     type="text"
@@ -252,7 +263,7 @@ const ChatInterface = () => {
                                     onChange={(e: ChangeEvent<HTMLInputElement>) =>
                                         setInputMessage(e.target.value)
                                     }
-                                    placeholder="Ask SayHalo anything..."
+                                    placeholder="Ask about social media posts..."
                                     className="flex-1 px-3 py-2 outline-none text-gray-800 placeholder-gray-400 text-sm md:text-base"
                                     disabled={isLoading}
                                 />
