@@ -1,3 +1,3 @@
 **SOCIALLY**
 --------------------------------------------------
-Pre hackathon assignment for level supermind hackathon.
+Pre hackathon assignment for level supermind hackathon
