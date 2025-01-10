@@ -1,4 +1,14 @@
 **SOCIALLY**
 --------------------------------------------------
 Pre hackathon assignment for level supermind hackathon
-[![Watch the Demo](https://img.youtube.com/vi/ZALOjVufb3KdIGQM/0.jpg)](https://youtu.be/sWw91OwDWIY?si=ZALOjVufb3KdIGQM)
+
+**DEMO VIDEO**
+------------------------------------------------
+https://github.com/user-attachments/assets/b75ccead-aae1-4a44-9d40-241c13855710
+
+
+
+
+
+
+
