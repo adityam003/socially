@@ -1,4 +1,4 @@
-# AI Agent Tool: Social Media Engagement Analyzer
+# Socially: AI Agent Tool for Social Media Engagement Analyzer
 
 ## Overview
 This project is a social media engagement analyzer built using **DataStax Astra DB**, **Langflow**, and **Next.js**. The tool analyzes engagement data from mock social media accounts to derive insights about post performance, helping users make informed decisions about content strategies.
