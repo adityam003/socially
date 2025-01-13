@@ -75,7 +75,7 @@ The project is deployed on Vercel at:
 - **Prathamesh Jakkula**  
   GitHub: [Prathamesh01110](https://github.com/Prathamesh01110)
 
-- **Aditya MurliMohan**  
+- **Aditya Murali Mohan**  
   GitHub: [adityam003](https://github.com/adityam003)
 
 - **Aniket Giri**  
